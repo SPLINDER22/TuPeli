@@ -1,4 +1,4 @@
-package com.urnovie.tupeli.service.impl;
+package com.urnovie.tupeli.impl;
 
 import com.urnovie.tupeli.entity.Movie;
 import com.urnovie.tupeli.service.MoviePosterService;
