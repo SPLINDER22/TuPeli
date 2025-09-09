@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<!-- Definición del fragmento -->
+<div th:fragment="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="/">🎬 Mis Películas</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/peliculas">Mis Películas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/peliculas/nueva">Agregar</a></li>
+                </ul>
+                <form class="d-flex" th:action="@{/logout}" method="post">
+                    <button class="btn btn-outline-dark" type="submit">
+                        <i class="bi bi-box-arrow-right me-1"></i>
+                        Salir
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header visual -->
+    <header class="bg-dark py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">Mis Películas Favoritas</h1>
+                <p class="lead fw-normal text-white-50 mb-0">Registra y consulta información con OMDb API</p>
+            </div>
+        </div>
+    </header>
+</div>
+</body>
+</html>

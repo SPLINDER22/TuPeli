@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="layout/layout :: layout(~{::section}, 'Registro de Usuario')">
+
+<section class="d-flex justify-content-center align-items-center" style="min-height: 80vh; background-color: #f8f9fa;">
+    <div class="col-md-6 col-lg-5">
+        <div class="card shadow-lg border-0 rounded-3">
+            <div class="card-body p-4">
+                <h2 class="text-center mb-4">Crear cuenta</h2>
+
+                <!-- Mensajes de alerta -->
+                <div th:if="${param.error}" class="alert alert-danger text-center" role="alert">
+                    Error: el email ya existe
+                </div>
+                <div th:if="${param.success}" class="alert alert-success text-center" role="alert">
+                    Registro exitoso, ya puedes iniciar sesión
+                </div>
+
+                <!-- Formulario de registro -->
+                <form th:action="@{/register}" method="post">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Nombre de usuario</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Ingresa tu nombre" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Ingresa tu email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Registrarse</button>
+                </form>
+
+                <!-- Enlace para volver al login -->
+                <div class="text-center mt-3">
+                    <p>¿Ya tienes cuenta?
+                        <a href="/" class="text-decoration-none">Inicia sesión aquí</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="layout/layout :: layout(~{::section}, 'Iniciar Sesión')">
+
+<section class="d-flex justify-content-center align-items-center" style="min-height: 70vh; background-color: #f8f9fa;">
+    <div class="col-md-6 col-lg-4">
+        <div class="card shadow-lg border-0 rounded-3">
+            <div class="card-body p-4">
+                <h3 class="text-center mb-4">Iniciar Sesión</h3>
+
+                <!-- Mensajes de alerta -->
+                <div th:if="${param.error}" class="alert alert-danger text-center" role="alert">
+                    Credenciales inválidas
+                </div>
+                <div th:if="${param.logout}" class="alert alert-success text-center" role="alert">
+                    Sesión cerrada con éxito
+                </div>
+                <div th:if="${param.registerSuccess}" class="alert alert-success text-center" role="alert">
+                    Registro exitoso, por favor inicia sesión.
+                </div>
+
+                <!-- Formulario de login -->
+                <form th:action="@{/login}" method="post">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Email</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Ingresa tu email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+                </form>
+
+                <div class="text-center mt-3">
+                    <p>¿No tienes cuenta?
+                        <a th:href="@{/register}" class="btn btn-link p-0">Regístrate aquí</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</html>
